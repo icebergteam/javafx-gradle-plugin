@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            from  components.java
+            artifact sourcesJar
+            artifact javadocJar
+            groupId ='de.dynamicfiles.projects.gradle.plugins'
+            artifactId  = 'javafx-gradle-plugin'
+            version = '0.0.1'
+        }
+    }
+}
+
+bintray {
+    user = 'daimonkor'
+    key = 'd1b064febfe7884f909a06ba341deb695e3b87e8'
+    publications = ['MyPublication']
+    pkg {
+        repo = 'maven'
+        name = 'de.dynamicfiles.projects.gradle.plugins'
+        userOrg = 'icebergteam'
+        licenses = ['Apache-2.0']
+        publicDownloadNumbers = true
+        publish = true
+        version {
+            name = '0.0.1'
+            vcsTag = '0.0.1'
+        }
+    }
+}
+
