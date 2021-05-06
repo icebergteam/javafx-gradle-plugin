@@ -11,7 +11,7 @@ publishing {
             artifact javadocJar
             groupId ='de.dynamicfiles.projects.gradle.plugins'
             artifactId  = 'javafx-gradle-plugin'
-            version = '0.0.1'
+            version = '8.8.1'
         }
     }
 }
@@ -28,8 +28,8 @@ bintray {
         publicDownloadNumbers = true
         publish = true
         version {
-            name = '0.0.1'
-            vcsTag = '0.0.1'
+            name = '8.8.1'
+            vcsTag = '8.8.1'
         }
     }
 }
